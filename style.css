@@ -1,0 +1,113 @@
+header
+        {
+            /* background-color: black ;
+            background-size: auto 6px; */
+            display: flex;
+            width: auto;
+            vertical-align: middle;
+            
+        }
+
+
+
+        .main_menu
+        {
+            background-color: black ;
+            box-shadow: 0 0 1em black;
+            margin-bottom: 2%;
+
+        }
+
+        .main_menu_sub {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            align-items: center;
+            }
+            
+            .logo
+            {
+                grid-area: 1 / 4 / 2 / 6;
+                text-align: center;
+                width: 60%;
+                height: auto;
+            }
+
+                .logo img
+                {
+                    width: 60%;
+                    height: auto;
+                    border-radius: 60%;
+                }
+            h1  
+            {
+                color: white;
+                font-family: wigwag-deluxe, sans-serif;
+                font-style: normal;
+                font-size: 23%;
+            }
+
+            .main_menu_1 
+            { 
+                grid-area: 1 / 1 / 2 / 4;
+                display: inline-flex;
+                grid-column-gap: 6%; 
+            }
+            
+            .main_menu_2 
+            { 
+                grid-area: 1 / 6 / 2 / 9;
+                display: inline-flex;
+                grid-column-gap: 6%; 
+                padding-left: 35%;
+            } 
+
+        li
+        {
+            color: white;
+            list-style-type: none;
+        }
+
+            li a
+            {
+                color: white;
+                font-family: prohibition, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 120%;
+            }
+
+
+            li a:hover
+            {
+                text-decoration: none;
+                color: red;
+            }
+
+
+
+
+/* //carouselx4// */
+
+.img-fluid
+{
+    height: 67%;
+    width: auto;
+    padding: 2%;
+}
+
+.carousel-control-next :hover
+{
+    background-color: gray;
+}
+
+
+.search button
+{
+    background-color: red;
+    border-radius: 45%;
+    font-family: prohibition, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 120%;
+    color: white;
+}
