@@ -1,6 +1,10 @@
 
 <!DOCTYPE html>
+
+<!-- //=======Annexes=======// -->
+
 <?php include('databaseco.php')?>
+
 <head>
 	<title>My cinema</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -24,16 +28,14 @@
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/2.jpg"></div>
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/3.jpg"></div>
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/1.jpg"></div>
-                        <div class="col-3 float-left"><img class="img-fluid" src="Affiches/3.jpg"></div>
-                        <div class="col-3 float-left"><img class="img-fluid" src="Affiches/1.jpg"></div>
+                        
                     </div>
                     <div class="carousel-item row no-gutters">
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/1.jpg"></div>
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/2.jpg"></div>
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/3.jpg"></div>
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/1.jpg"></div>
-                        <div class="col-3 float-left"><img class="img-fluid" src="Affiches/3.jpg"></div>
-                        <div class="col-3 float-left"><img class="img-fluid" src="Affiches/1.jpg"></div>
+                        
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
@@ -49,6 +51,21 @@
         </section>
     </section>
 
+    <section>
+        <div>
+            <aside>
+                <div>
+                    <h4>Recherche par filtre</h4>
+                    <select id="distrib">
+                        <option value="valeur1">Valeur 1</option> 
+                        <option value="valeur2" selected>Valeur 2</option>
+                        <option value="valeur3">Valeur 3</option>
+                    </select>
+                    
+                </div>
+            </aside>
+        </div>
+    </section>
     <?php $reponse = $bdd->query('SELECT nom_salle  FROM salle');
 
     while($donnees = $reponse->fetch())
@@ -58,11 +75,8 @@
 
     ?>
 
-<footer>
-  <section class="main_menu_sub">
-    
-  </section>
-</footer>
+        <?php include('footer.php'); ?>
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

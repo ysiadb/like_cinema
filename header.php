@@ -1,3 +1,4 @@
+<?php include('databaseco.php')?>
 <header>
         <div class="main_menu">
             <nav class="main_menu_sub" >
@@ -13,9 +14,11 @@
                 </div>
                 <ul class="main_menu_2">
                   <div class="search">
-                    <input type="search" placeholder="Rechercher un film ..." id="site-search" name="q" aria-label="Search through site content">
-                    
-                    <button>Search</button>
+                    <form action="search.php" method="get">
+                      <input placeholder="Rechercher un film ..." id="site-search" name="terme" aria-label="Search through site content">
+                      
+                      <button method="get" name="q" value="Rechercher">Search</button>
+                    </form>
                   </div>
                   <li><a href="">Mon espace</a></li>
                 </ul>
