@@ -3,7 +3,13 @@
 
 <!-- //=======Annexes=======// -->
 
-<?php include('databaseco.php')?>
+<?php include('databaseco.php');
+
+$genre = $bdd->query('SELECT * FROM genre');
+$distrib = $bdd->query('SELECT * FROM distrib');
+?>
+
+<!-- ======================== -->
 
 <head>
 	<title>My cinema</title>
@@ -15,11 +21,17 @@
     
 </head>
 <body>
-        <?php include('header.php');?>
+    <?php include('header.php');?>
+                
+    <section class="main_container">
     
-    <section>
-        <section class="container">
+    <?php include ("sidebar.php");?>    
+        
+        <!-- <section class="container"> -->
             <div class="container choices">
+                <hr>
+                <h1 id="a_laffiche">✌ . A l'affiche . ✌</h1>
+                <hr>
 
               <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                 <div class="carousel-inner w-100" role="listbox">
@@ -47,38 +59,29 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            </div>
-        </section>
-    </section>
+            <!-- </div> -->
+        <!-- </section> -->
 
-    <section>
+    
+    
+    <div class="main">
         <div>
-            <aside>
-                <div>
-                    <h4>Recherche par filtre</h4>
-                    <select id="distrib">
-                        <option value="valeur1">Valeur 1</option> 
-                        <option value="valeur2" selected>Valeur 2</option>
-                        <option value="valeur3">Valeur 3</option>
-                    </select>
-                    
-                </div>
-            </aside>
+            <?php $reponse = $bdd->query('SELECT nom_salle  FROM salle');
+
+                while($donnees = $reponse->fetch())
+                {
+                    echo $donnees["nom_salle"] . "<br/>";
+                }
+            ?>        
         </div>
-    </section>
-    <?php $reponse = $bdd->query('SELECT nom_salle  FROM salle');
+    </div>
 
-    while($donnees = $reponse->fetch())
-    {
-        echo $donnees["nom_salle"] . "<br/>";
-    }
+</section>
 
-    ?>
-
-        <?php include('footer.php'); ?>
+<?php include('footer.php'); ?>
 
 </body>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

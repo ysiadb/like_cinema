@@ -80,11 +80,133 @@ header
             li a:hover
             {
                 text-decoration: none;
-                color: red;
+                color: redclea;
             }
 
 
+.main_container
+{
+    display: grid;
+    grid-template-areas:"head head head head"
+                        "nav  main main main"
+                        "nav  main main main";
+    grid-template-columns: 385px 1fr 0%;
+}
 
+
+header
+{
+    grid-area: header;
+}
+
+.sidebar
+{
+    grid-area: nav;
+    border: 1px solid black;
+    margin: 2%;
+}
+    .sidebar h3
+    {
+        font-family: wigwag-deluxe, sans-serif;
+        font-style: normal;
+        font-size: 140%;
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .sidebar h4
+    {
+        font-family: prohibition, sans-serif;
+        font-style: normal;
+        font-size: 120%;
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+
+    .sidebar .search
+    {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar input
+    {
+        width: 100%;
+    }
+    .sidebar select
+    {
+        margin-top: 10px;
+        width: 55%;
+
+    }
+
+    .search_sidebar_button
+    {
+    border-radius: 45%;
+    font-family: prohibition, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 120%;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    }
+    
+
+    .search_byfilter 
+    {
+        background-color: black;
+        padding: 5%;
+    }
+
+        .search_byfilter h4
+        {
+            color: white;
+        }
+    .sidebar .tonight
+    {
+        text-align: center;
+        margin-top: 10px;
+        background-color: red;
+        padding: 5%;
+    }
+
+        .sidebar a
+        {
+            color: black;
+            font-family: prohibition, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 120%;
+            margin-top: 10px;
+        }
+
+.container.choices
+{
+    grid-area: main;
+}
+
+.main
+{
+    grid-area: main;
+}
+
+#a_laffiche
+{
+    font-family: prohibition;
+    color: black;
+    text-align: center;
+    font-size: 190%;
+
+}
+
+    .container.choices hr
+    {
+        border-top: 2px solid black;
+    }
 
 /* //carouselx4// */
 
@@ -100,6 +222,10 @@ header
     background-color: gray;
 }
 
+
+
+/* 
+=====SEARCH NAV===== */
 
 .search button
 {
@@ -117,43 +243,121 @@ header
 
 /* ==========================Footer========================== */
 
-footer {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+footer 
+    {
     background-color: black;
     }
     
-    .foote_area 
-    { 
-        grid-area: 1 / 1 / 3 / 9; 
-    }
-
-    .footer_menu 
-    { 
-        grid-area: 1 / 1 / 2 / 5;
-        display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            align-items: center; 
-    }
-
-    #copyright 
+    .footer_area 
     {
-         grid-area: 2 / 7 / 3 / 9;
-         color: red;
-         float: left; 
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+        grid-template-rows: 0.1fr 0.1fr;
+        grid-template-areas: 
+        "menu1 menu1 menu1 . . logo logo" 
+        "search search . adress . logo logo";
+      }
+
+    .footer_menu ul
+    { 
+        grid-area: menu1 menu1 menu1 ;
+        grid-area: 1 / 6 / 2 / 9;
+        display: inline-flex;
+        grid-column-gap: 6%;
+        padding-left: 35%;
+        white-space:nowrap;
+        padding: 5%;
+    }
+
+    #adress 
+    {
+        grid-area: adress;
+         color: white;
+         text-align: center;
+         padding: 5%; 
+         font-size: 80%;
+         align-self: center;
+    }
+
+    #copyright
+    {
+        color: red;
     }
 
     .search_area
     { 
-        grid-area: 2 / 1 / 3 / 4;
+        grid-area: search;
+        padding: 5%;
+        align-self: center;
     }
+
+        .search_area button
+        {
+            background-color: red;
+            border-radius: 45%;
+            font-family: prohibition, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 120%;
+            color: white;
+        }
 
     .logo_footer 
     { 
-        grid-area: 1 / 7 / 2 / 9; 
+        grid-area: logo;
+        text-align: end;
+        padding: 5%;
+        align-self: center;
     }
+
+        .logo_footer img
+        {
+            border-radius: 50%;
+            width: 23%;
+        }
+
+        .logo_footer p
+        {
+            font-size: 110%;
+            color: white;
+            font-family: wigwag-deluxe, sans-serif;
+            font-style: normal;
+        }
     
 /* ========================================================== */
+
+
+/* ======== FILMS ========  */
+
+.films
+{
+    padding-left: 5%;
+    padding-right: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 5%;
+}
+
+    .films #synopsis 
+    {
+        padding-top: 4%;
+    }
+
+
+/* =========ABO========= */
+
+.abo
+{
+    padding-left: 5%;
+    padding-right: 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 5%;
+}
+
+#abonnement_title
+{
+    font-family: prohibition;
+    font-size: 150%;
+    text-align: center;
+}
