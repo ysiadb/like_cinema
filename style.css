@@ -331,6 +331,7 @@ footer
 
 .films
 {
+    margin-top: 5%;
     padding-left: 5%;
     padding-right: 5%;
     display: grid;
@@ -359,5 +360,35 @@ footer
 {
     font-family: prohibition;
     font-size: 150%;
+    text-align: center;
+}
+
+/* =========MEMBRES========= */
+
+#membre_title
+{
+    font-family: prohibition;
+    font-size: 150%;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.membres
+{
+    padding-left: 5%;
+    padding-right: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 5%;
+}
+
+#mb-search
+{
+    width: 90%;
+    margin-bottom: 5%;
+}
+
+.main_membre
+{
     text-align: center;
 }

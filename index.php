@@ -7,6 +7,22 @@
 
 $genre = $bdd->query('SELECT * FROM genre');
 $distrib = $bdd->query('SELECT * FROM distrib');
+
+$filmsParPage = 12;
+$filmsTotalReq = $bdd->query('SELECT * FROM film');
+$filmsTotal = $filmsTotalReq->rowCount();
+$pagesTotales = ceil($filmsTotal/$filmsParPage);
+
+if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $pagesTotales) {
+    $_GET['page'] = intval($_GET['page']);
+    $pageCourante = $_GET['page'];
+ } else {
+    $pageCourante = 1;
+ }
+ $depart = ($pageCourante-1)*$filmsParPage;
+
+
+
 ?>
 
 <!-- ======================== -->
@@ -39,14 +55,14 @@ $distrib = $bdd->query('SELECT * FROM distrib');
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/1.jpg"></div>
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/2.jpg"></div>
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/3.jpg"></div>
-                        <div class="col-3 float-left"><img class="img-fluid" src="Affiches/1.jpg"></div>
+                        <div class="col-3 float-left"><img class="img-fluid" src="Affiches/4.jpg"></div>
                         
                     </div>
                     <div class="carousel-item row no-gutters">
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/1.jpg"></div>
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/2.jpg"></div>
                         <div class="col-3 float-left"><img class="img-fluid" src="Affiches/3.jpg"></div>
-                        <div class="col-3 float-left"><img class="img-fluid" src="Affiches/1.jpg"></div>
+                        <div class="col-3 float-left"><img class="img-fluid" src="Affiches/4.jpg"></div>
                         
                     </div>
                 </div>
@@ -59,21 +75,45 @@ $distrib = $bdd->query('SELECT * FROM distrib');
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            <hr>
+            <hr>
+
             <!-- </div> -->
         <!-- </section> -->
 
     
     
     <div class="main">
-        <div>
-            <?php $reponse = $bdd->query('SELECT nom_salle  FROM salle');
+        <section>
+            <h1 id="a_laffiche"> . FILMS . </h1>
+            <hr>
+
+        </section>
+    <div class="films">
+            <?php $reponse = $bdd->query('SELECT * FROM film LEFT JOIN genre ON film.id_genre = genre.id_genre LIMIT '.$depart.','.$filmsParPage);
 
                 while($donnees = $reponse->fetch())
                 {
-                    echo $donnees["nom_salle"] . "<br/>";
+                    echo "<div>" . "<h4><b>". $donnees['titre'] . "</b></h4>". "Genre : " . $donnees['nom'] . "<br/>" . "Distribution : " . $donnees['id_distrib'] . "<br/>"."Sortie : " . $donnees['date_debut_affiche'] . " - ". $donnees['date_fin_affiche']. "<br/>" . "Durée : ". $donnees['duree_min'] . " min" . "<br/>". "Année : " . $donnees['annee_prod'] . "<br/>". "<div id=\"synopsis\">" . "Synopsis : " . $donnees['resum'] . "</div>" . "<br/>" . "<br/>" . "</div>";
                 }
-            ?>        
+
+            ?>   
+            
         </div>
+        <?php
+        for($i=1;$i<=$pagesTotales;$i++) 
+        {
+         if($i == $pageCourante) 
+         {
+            echo $i.' ';
+         } 
+         else 
+         {
+            echo '<a href="film.php?page='.$i.'">'.$i.'</a> ';
+         }
+        }
+      ?>     
+    </div>
     </div>
 
 </section>

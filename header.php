@@ -6,7 +6,7 @@
                     <li><a href="">Séances</a></li>
                     <li><a href="film.php">Films</a></li>
                     <li><a href="abonnements.php">Abonnements</a></li>
-                    <li><a href="">Membres</a></li>
+                    <li><a href="membres.php">Membres</a></li>
                 </ul>
                 <div class="logo">
                   <a href="index.php"><img src="chaplin.jpg" alt="dessin-logo">

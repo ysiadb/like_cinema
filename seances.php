@@ -24,24 +24,23 @@ $distrib = $bdd->query('SELECT * FROM distrib');
     <?php include('header.php');?>
                 
     <section class="main_container">
-
+    
     <?php include ("sidebar.php");?>    
         
-        <!-- <section class="container"> -->
             <div class="container choices">
-                <p>zjndiufz njisugdihdqudyb ydgyudiqudgq </p>
+
+
+            </div>
+               
     
     <div class="main">
-        <div>
-            <?php $reponse = $bdd->query('SELECT nom_salle  FROM salle');
+     <?php $reponse = $bdd->query('SELECT nom_salle  FROM salle');
 
                 while($donnees = $reponse->fetch())
                 {
                     echo $donnees["nom_salle"] . "<br/>";
                 }
-
-            ?>        
-        </div>
+            ?>
     </div>
 
 </section>
